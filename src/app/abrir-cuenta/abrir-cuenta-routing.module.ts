@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AbrirCuentaComponent } from './abrir-cuenta.component';
 
 const routes: Routes = [
-  { path: '', component: AbrirCuentaComponent }
+  { path: '', component: AbrirCuentaComponent, pathMatch:'full' }
 ];
 
 @NgModule({

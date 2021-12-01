@@ -1,0 +1,63 @@
+:host ::ng-deep{
+
+    .ui-steps .ui-steps-item {
+        width: 25%;
+    }
+    
+    .ui-steps.steps-custom {
+        margin-bottom: 30px;
+    }
+    
+    .ui-steps.steps-custom .ui-steps-item .ui-menuitem-link {
+        padding: 0 1em;
+        overflow: visible;
+    }
+    
+    .ui-steps.steps-custom .ui-steps-item .ui-steps-number {
+        background-color: #0081c2;
+        color: #FFFFFF;
+        display: inline-block;
+        width: 36px;
+        border-radius: 50%;
+        margin-top: -14px;
+        margin-bottom: 10px;
+    }
+    
+    .ui-steps.steps-custom .ui-steps-item .ui-steps-title {
+        color: #555555;
+    }
+}
+
+$topnav-background-color: #eda923;
+.container{
+    max-width: 100%!important;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: $topnav-background-color;
+}
+.card-pasos{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: transparent;
+}
+.label-pasos{
+    text-align: center;
+    color: orange;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 1.3em;
+    border-top-right-radius: 12em;
+    border-bottom-right-radius: 12em;
+    background-color: #eeeeee;
+}
+.label-pasos-color-rojo{
+    text-align: center;
+    color: orange;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 1.3em;
+    border-top-right-radius: 12em;
+    border-bottom-right-radius: 12em;
+    background-color: red;
+}

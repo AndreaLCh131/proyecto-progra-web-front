@@ -5,21 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PrincipalComponent } from './principal/principal.component';
-import { LoginComponent } from './login/login.component';
-import { AbrirCuentaComponent } from './abrir-cuenta/abrir-cuenta.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+   
   ],
-  providers: [],
+  // providers: [HttpClient2],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

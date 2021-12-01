@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarouselModule } from 'primeng/carousel';
 
 
@@ -13,6 +13,7 @@ import { CarouselModule } from 'primeng/carousel';
   exports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     CarouselModule
   ]
 })

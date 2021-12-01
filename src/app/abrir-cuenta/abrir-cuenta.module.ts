@@ -5,12 +5,26 @@ import { AbrirCuentaRoutingModule } from './abrir-cuenta-routing.module';
 import { AbrirCuentaComponent } from './abrir-cuenta.component';
 import { SharedModule } from '../shared/modules/shared/shared.module';
 import { SeccionModule } from '../shared/components/seccion.module';
+import {StepsModule} from 'primeng/steps';
+import {MenuModule} from 'primeng/menu';
+import {CardModule} from 'primeng/card';
+import {DropdownModule} from 'primeng/dropdown';
+import {ButtonModule} from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    AbrirCuentaRoutingModule, SharedModule, SeccionModule
+    SharedModule, SeccionModule,
+    CardModule,
+    StepsModule,
+    MenuModule,
+    DropdownModule,ButtonModule,
+    InputTextModule,
+    FileUploadModule,
+    AbrirCuentaRoutingModule, 
   ],
   declarations: [AbrirCuentaComponent]
 })
