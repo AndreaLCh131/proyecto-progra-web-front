@@ -1,0 +1,46 @@
+<div class="col-xl-12">
+    <div class="ui-g-12 content">
+        <div class="container">
+            <h1>Partidas</h1>
+        </div>
+      <div>
+        <div class="btn-registrar">
+            <button class="btn btn-primary btn-lg-maintenance mr-3" (click)="onClickNuevo()">Registrar</button>
+            <label class="label-espacio">Filtrar Juego:</label>
+            <input type="text" name="nombre"  class="form-control" placeholder="Nombre del Juego">
+        </div>
+        <p-table #dt [value]="listado" [rows]="8" [paginator]="true" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="juego">Juego <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="fecha">Fecha<p-sortIcon field="fecha"></p-sortIcon></th>
+                <th pSortableColumn="tiempo">Duración<p-sortIcon field="tiempo"></p-sortIcon></th>
+                <th pSortableColumn="equipoA">Equipo A<p-sortIcon field="equipoA"></p-sortIcon></th>
+                <th pSortableColumn="equipoB">Equipo B<p-sortIcon field="equipoB"></p-sortIcon></th>  
+                <th pSortableColumn="estado">Status <p-sortIcon field="estado"></p-sortIcon></th>
+                <th pSortableColumn="accion">Acción <p-sortIcon field="accion"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.nombre}}</td>
+                <td>{{product.fecha}}</td>
+                <td>{{product.tiempo}}</td>
+                <td>{{product.equipoA}}</td>
+                <td>{{product.equipoB}}</td>
+                <td>{{product.estado}}</td>
+                <td>
+                    <button class = "btn btn-primary"
+                        (click)="onClickNuevo()"
+                        data-toggle="modal" data-target = "#modalB"> Editar
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+        </p-table>
+      </div>
+    </div>
+</div>

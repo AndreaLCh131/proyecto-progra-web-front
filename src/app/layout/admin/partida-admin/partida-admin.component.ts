@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-partida-admin',
-  templateUrl: './partida-admin.component.html',
+  template: '<router-outlet> </router-outlet>',
   styleUrls: ['./partida-admin.component.scss']
 })
 export class PartidaAdminComponent implements OnInit {

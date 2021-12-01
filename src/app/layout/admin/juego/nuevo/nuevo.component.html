@@ -1,0 +1,35 @@
+<div class="main container-fluid vertical-center">
+    <div class="form-content">
+        <div class="row">
+            <div class="container">
+                <h1>Administrar Juegos</h1>
+            </div>
+            <div class="col detalle">
+                <div class="form-group Label">
+                    <label class="label-espacio">Categorías:</label>
+                    <form>
+                        <select name = "Categorías de juegos">
+                            <option>--Seleccionar--</option>
+                            <option>Liga de Campiones</option>
+                            <option>Copa Libertadores</option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="form-group Label">
+                    <label class="label-espacio">Nombres:</label>
+                    <input type="text" name="nombre"  class="form-control" placeholder="Nombre del juego">
+                </div>
+
+                <div class="form-group Label">
+                    <label class="label-espacio">ID:</label>
+                    <label class="id">{{Idgenerado}}</label>
+                    
+                </div>
+                <div class="alinear-boton">
+                    <button id="number" class="btn login-btn" (click)="generarId()">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
