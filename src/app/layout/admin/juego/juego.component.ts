@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-juego',
-  templateUrl: './juego.component.html',
+  template: '<router-outlet> </router-outlet>',
   styleUrls: ['./juego.component.scss']
 })
 export class JuegoComponent implements OnInit {
