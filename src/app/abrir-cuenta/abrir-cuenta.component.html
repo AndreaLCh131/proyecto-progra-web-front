@@ -22,7 +22,7 @@
 </div>
 
 <div [formGroup]="formRegistroCuenta">
-<div class="stepsdemo-content" [hidden]="!isNombre">
+<div class="stepsdemo-content" *ngIf="isNombreCard">
     <p-card>
         <ng-template pTemplate="content">
             <div class="p-fluid">
@@ -59,7 +59,7 @@
         </ng-template>
     </p-card>
 </div>
-<div class="stepsdemo-content" [hidden]="!isDni">
+<div class="stepsdemo-content" *ngIf="isDniCard">
     <p-card>
         <ng-template pTemplate="content">
             <div class="p-fluid p-formgrid p-grid">
@@ -94,7 +94,7 @@
         </ng-template>
     </p-card>
 </div>
-<div class="stepsdemo-content" [hidden]="!isCorreo">
+<div class="stepsdemo-content" *ngIf="isCorreoCard">
     <p-card>
         <ng-template pTemplate="content">
             <div class="p-fluid">
@@ -133,7 +133,7 @@
         </ng-template>
     </p-card>
 </div>
-<div class="stepsdemo-content" [hidden]="!isUbigeo">
+<div class="stepsdemo-content" *ngIf="isUbigeoCard">
     <p-card>
         <ng-template pTemplate="content">
             <div class="p-fluid p-formgrid p-grid">
@@ -178,7 +178,7 @@
         </ng-template>
     </p-card>
 </div>
-<div class="stepsdemo-content" [hidden]="!isPpe">
+<div class="stepsdemo-content" *ngIf="isPpeCard">
     <p-card>
         <ng-template pTemplate="content">
             <div class="p-fluid">
@@ -210,7 +210,7 @@
         </ng-template>
         <ng-template pTemplate="footer">
             <div class="p-grid p-nogutter ">
-                <p-button label="Next" (onClick)="prevPageUbigeo()" icon="pi pi-angle-right" iconPos="right"></p-button>
+                <p-button label="Atrás" (onClick)="prevPageUbigeo()" icon="pi pi-angle-left"></p-button>
                 <p-button label="Next" (onClick)="nextPageEsperaValidacion()" icon="pi pi-angle-right" iconPos="right"></p-button>
             </div>
         </ng-template>

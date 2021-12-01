@@ -5,8 +5,8 @@ import { JuegoRoutingModule } from './juego-routing.module';
 import { JuegoComponent } from './juego.component';
 import { ListadoComponent } from './listado/listado.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
-import { SharedModule } from 'src/app/shared/modules/shared/shared.module';
 import { TableModule } from 'primeng/table';
+import { SharedModule } from 'src/app/shared/modules/shared.module';
 
 
 @NgModule({

@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'abrir', loadChildren: () => import('./abrir-cuenta/abrir-cuenta.module').then(m => m.AbrirCuentaModule) },
   { path: 'layout', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)},
   { path: '', loadChildren: () => import('./principal/principal.module').then(m => m.PrincipalModule)},
+  { path: 'documentos', loadChildren: () => import('./documentos/documentos.module').then(m => m.DocumentosModule)},
   { path: '**', redirectTo: '/login' }
 ];
 

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { PrincipalRoutingModule } from './principal-routing.module';
 import { PrincipalComponent } from './principal.component';
-import { SharedModule } from '../shared/modules/shared/shared.module';
 import { SeccionModule } from '../shared/components/seccion.module';
+import { SharedModule } from '../shared/modules/shared.module';
 
 
 @NgModule({

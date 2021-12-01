@@ -19,8 +19,10 @@ export class AbrirCuentaComponent implements OnInit {
   //nombres
   personalInformation: any;
   isNombre : boolean = true;
+  isNombreCard : boolean = true;
   //dni
   isDni : boolean = false;
+  isDniCard : boolean = false;
   image: any;
   imagenCodificada: string;
 
@@ -33,14 +35,16 @@ export class AbrirCuentaComponent implements OnInit {
   url;
   //correo
   isCorreo : boolean = false;
+  isCorreoCard : boolean = false;
   //ubigeo
   isUbigeo : boolean = false;
+  isUbigeoCard : boolean = false;
   listDepartamento: SelectItem[];
   listProvincia: SelectItem[];
   listDistrito: SelectItem[];
   //ppe
   isPpe : boolean = false;
-
+  isPpeCard : boolean = false;
 
   constructor( ) { }
 
@@ -138,11 +142,12 @@ export class AbrirCuentaComponent implements OnInit {
           this.isCorreo = false;
           this.isUbigeo = false;
           this.isPpe = false;
-          console.log(this.isNombre);
-          console.log(this.isDni);
-          console.log(this.isCorreo);
-          console.log(this.isUbigeo);
-          console.log(this.isPpe);
+          //cards
+          this.isNombreCard = false;
+          this.isDniCard = true;
+          this.isCorreoCard = false;
+          this.isUbigeoCard = false;
+          this.isPpeCard = false;
           return;
       }
   }
@@ -168,13 +173,20 @@ export class AbrirCuentaComponent implements OnInit {
   }
 
   nextPageCorreo() {
-    if (this.seatInformation.class && this.seatInformation.seat && this.seatInformation.wagon) {
-        console.log(this.seatInformation);
+    if (this.formRegistroCuenta.get("dni").value) {
+        console.log(this.formRegistroCuenta);
         this.isNombre = true;
         this.isDni = true;
         this.isCorreo = true;
         this.isUbigeo = false;
         this.isPpe = false;
+        //cards
+        this.isNombreCard = false;
+        this.isDniCard = false;
+        this.isCorreoCard = true;
+        this.isUbigeoCard = false;
+        this.isPpeCard = false;
+        return;
     }
   }
 
@@ -185,6 +197,13 @@ export class AbrirCuentaComponent implements OnInit {
       this.isCorreo = false;
       this.isUbigeo = false;
       this.isPpe = false;
+      //cards
+      this.isNombreCard = true;
+      this.isDniCard = false;
+      this.isCorreoCard = false;
+      this.isUbigeoCard = false;
+      this.isPpeCard = false;
+      return;
   }
 
   onUpload(event) {
@@ -200,15 +219,18 @@ export class AbrirCuentaComponent implements OnInit {
 
   //correo
   nextPageUbigeo() {
-    if (this.seatInformation.class && this.seatInformation.seat && this.seatInformation.wagon) {
-        console.log(this.seatInformation);
-        console.log(this.personalInformation);
-        this.isNombre = true;
-        this.isDni = true;
-        this.isCorreo = true;
-        this.isUbigeo = true;
-        this.isPpe = false;
-    }
+    this.isNombre = true;
+    this.isDni = true;
+    this.isCorreo = true;
+    this.isUbigeo = true;
+    this.isPpe = false;
+    //cards
+    this.isNombreCard = false;
+    this.isDniCard = false;
+    this.isCorreoCard = false;
+    this.isUbigeoCard = true;
+    this.isPpeCard = false;
+    return;
   }
 
   prevPageDni() {
@@ -218,19 +240,30 @@ export class AbrirCuentaComponent implements OnInit {
       this.isCorreo = false;
       this.isUbigeo = false;
       this.isPpe = false;
+      //cards
+      this.isNombreCard = false;
+      this.isDniCard = true;
+      this.isCorreoCard = false;
+      this.isUbigeoCard = false;
+      this.isPpeCard = false;
+      return;
   }
 
   //ubigeo
   nextPagePpe() {
-    if (this.seatInformation.class && this.seatInformation.seat && this.seatInformation.wagon) {
-        console.log(this.seatInformation);
-        console.log(this.personalInformation);
+
         this.isNombre = true;
         this.isDni = true;
         this.isCorreo = true;
         this.isUbigeo = true;
         this.isPpe = true;
-    }
+        //cards
+        this.isNombreCard = false;
+        this.isDniCard = false;
+        this.isCorreoCard = false;
+        this.isUbigeoCard = false;
+        this.isPpeCard = true;
+        return;
   }
 
   prevPageCorreo() {
@@ -240,6 +273,13 @@ export class AbrirCuentaComponent implements OnInit {
       this.isCorreo = true;
       this.isUbigeo = false;
       this.isPpe = false;
+      //cards
+      this.isNombreCard = false;
+      this.isDniCard = false;
+      this.isCorreoCard = true;
+      this.isUbigeoCard = false;
+      this.isPpeCard = false;
+      return;
   }
 
   // onChangeDepartamento(event):void{
@@ -311,15 +351,19 @@ export class AbrirCuentaComponent implements OnInit {
 
   //ppe
   nextPageEsperaValidacion() {
-    if (this.seatInformation.class && this.seatInformation.seat && this.seatInformation.wagon) {
-        console.log(this.seatInformation);
-        console.log(this.personalInformation);
         this.isNombre = true;
         this.isDni = true;
         this.isCorreo = true;
         this.isUbigeo = true;
         this.isPpe = true;
-    }
+        //cards
+        this.isNombreCard = false;
+        this.isDniCard = false;
+        this.isCorreoCard = false;
+        this.isUbigeoCard = false;
+        this.isPpeCard = false;
+      return;
+        console.log(this.formRegistroCuenta);
   }
 
   prevPageUbigeo() {
@@ -329,6 +373,13 @@ export class AbrirCuentaComponent implements OnInit {
       this.isCorreo = false;
       this.isUbigeo = true;
       this.isPpe = false;
+      //cards
+      this.isNombreCard = false;
+      this.isDniCard = false;
+      this.isCorreoCard = false;
+      this.isUbigeoCard = true;
+      this.isPpeCard = false;
+      return;
   }
 
 }

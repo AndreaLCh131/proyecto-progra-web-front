@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AbrirCuentaRoutingModule } from './abrir-cuenta-routing.module';
 import { AbrirCuentaComponent } from './abrir-cuenta.component';
-import { SharedModule } from '../shared/modules/shared/shared.module';
 import { SeccionModule } from '../shared/components/seccion.module';
 import {StepsModule} from 'primeng/steps';
 import {MenuModule} from 'primeng/menu';
@@ -12,6 +11,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import {ButtonModule} from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import {FileUploadModule} from 'primeng/fileupload';
+import { SharedModule } from '../shared/modules/shared.module';
 
 
 @NgModule({
