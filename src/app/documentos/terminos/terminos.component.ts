@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-terminos',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TerminosComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  page: string;
+  constructor(private route: ActivatedRoute,   private router: Router) { 
+    this.page = "";
   }
 
+  ngOnInit(): void {
+    console.log(this.route.snapshot);
+    this.page = this.route.snapshot.queryParams['page'] || 'layout/bienvenida';
+  }
+  loggearCliente(){
+
+    this.router.navigate([this.page]);
+  }
 }

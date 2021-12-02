@@ -7,6 +7,7 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { ReglasComponent } from './reglas/reglas.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { SeccionModule } from '../shared/components/seccion.module';
+import { LoginRoutingModule } from '../login/login-routing.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SeccionModule } from '../shared/components/seccion.module';
   imports: [
     CommonModule,
     SeccionModule,
+    LoginRoutingModule,
     DocumentosRoutingModule
   ]
 })
