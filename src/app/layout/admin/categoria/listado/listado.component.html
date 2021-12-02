@@ -1,0 +1,35 @@
+<div class="col-xl-12">
+
+    <div class="ui-g-12 content table-content">
+  
+      <div class="contenedor">
+        <button class="btn btn-primary btn-lg-maintenance mr-3" (click)="onClickNuevo()">Registrar</button>
+      </div>    
+    
+    <div>
+        
+        <p-table #dt [value]="listado" [rows]="4" [paginator]="true" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                <th pSortableColumn="categoriaId">Id  <p-sortIcon field="categoriaId"></p-sortIcon></th>
+                <th>Acción</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-categoria>
+            <tr>
+                <td>{{categoria.nombre}}</td>
+                <td>{{categoria.categoriaId}}</td>
+                <td>
+                  <button class="btn btn-primary btn-lg-maintenance mr-3" (click)="onClickModificar(categoria.categoriaId)">Editar</button>
+                </td>
+            </tr>
+        </ng-template>
+         </p-table>
+      </div>
+
+  
+    </div>
+  
+  </div>

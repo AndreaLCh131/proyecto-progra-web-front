@@ -1,0 +1,219 @@
+
+<div class="container">
+    <h1>Registro</h1>
+</div>
+
+<div class="card-pasos">
+    <div class="label-pasos" [ngClass]="isNombre ? 'label-pasos-color-rojo' : 'label-pasos'" >     
+        <span>Paso 1</span>
+    </div>
+    <div class="label-pasos" [ngClass]="isDni ? 'label-pasos-color-rojo' : 'label-pasos'" >     
+        <span>Paso 2</span>
+    </div>
+    <div class="label-pasos" [ngClass]="isCorreo ? 'label-pasos-color-rojo' : 'label-pasos'">     
+        <span>Paso 3</span>
+    </div>
+    <div class="label-pasos" [ngClass]="isUbigeo ? 'label-pasos-color-rojo' : 'label-pasos'">     
+        <span>Paso 4</span>
+    </div>
+    <div class="label-pasos" [ngClass]="isPpe ? 'label-pasos-color-rojo' : 'label-pasos'">     
+        <span>Paso 5</span>
+    </div>
+</div>
+
+<div [formGroup]="formRegistroCuenta">
+<div class="stepsdemo-content" *ngIf="isNombreCard">
+    <p-card>
+        <ng-template pTemplate="content">
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="nombre">Nombres*:</label>
+                    <input pInputText type="text" name="nombre" formControlName="nombre"/> 
+                    <div *ngIf="formRegistroCuenta.controls.nombre.errors && formRegistroCuenta.controls.nombre.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.nombre.errors.required" class="p-error">El nombre es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.nombre.errors.maxlength" class="alert alert-danger">El nombre es debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="apellidoPaterno">Apellido Paterno*:</label>
+                    <input pInputText type="text" name="apellidoPaterno" formControlName="apellidoPaterno"/> 
+                    <div *ngIf="formRegistroCuenta.controls.apellidoPaterno.errors && formRegistroCuenta.controls.apellidoPaterno.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.apellidoPaterno.errors.required" class="p-error">El apellido paterno es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.apellidoPaterno.errors.maxlength" class="alert alert-danger">El apellido paterno debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="apellidoMaterno">Apellido Materno*:</label>
+                    <input pInputText type="text" name="apellidoMaterno" formControlName="apellidoMaterno"/> 
+                    <div *ngIf="formRegistroCuenta.controls.apellidoMaterno.errors && formRegistroCuenta.controls.apellidoMaterno.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.apellidoMaterno.errors.required" class="p-error">El apellido materno es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.apellidoMaterno.errors.maxlength" class="alert alert-danger">El apellido materno debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="p-grid p-nogutter ">
+                <p-button label="Next" (onClick)="nextPageDni()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
+<div class="stepsdemo-content" *ngIf="isDniCard">
+    <p-card>
+        <ng-template pTemplate="content">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 p-md-6">
+                    <label for="class">DNI*:</label>
+                    <input pInputText type="text" name="dni" formControlName="dni"/>
+                    <div *ngIf="formRegistroCuenta.controls.dni.errors && formRegistroCuenta.controls.dni.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.dni.errors.required" class="p-error">El apellido materno es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.dni.errors.maxlength" class="alert alert-danger">El apellido materno debe tener máximo 15 caracteres.</small>
+                    </div>
+                </div>
+                <div class="p-field p-col-12 p-md-6">
+                    <label for="wagon">Foto de perfil*</label>
+                    <div class="ui-g-4">
+                        <p-fileUpload name="archivo" url="{{url}}" accept=".png,.jpg,.jpeg"
+                        chooseLabel="Seleccionar"  (onUpload)="onUpload($event)" 
+                        (onError)="onError($event)">
+                        </p-fileUpload>
+                        <span>(132 x 162) recomendado</span>
+                    </div>
+                    <div class="ui-g-4">
+                        <img src="{{image}}">
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="p-grid p-nogutter p-justify-between">
+                <p-button label="Atrás" (onClick)="prevPageNombre()" icon="pi pi-angle-left"></p-button>
+                <p-button label="Siguiente" (onClick)="nextPageCorreo()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
+<div class="stepsdemo-content" *ngIf="isCorreoCard">
+    <p-card>
+        <ng-template pTemplate="content">
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="correo">Correo Electrónico*:</label>
+                    <input pInputText type="text" name="correo" formControlName="correo"/> 
+                    <div *ngIf="formRegistroCuenta.controls.correo.errors && formRegistroCuenta.controls.correo.touched">
+                            <small *ngIf="formRegistroCuenta.controls.correo.errors.incorrectMailFormat" class="alert alert-danger">
+                              Correo Invalido
+                            </small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="contrasena">Contraseña*:</label>
+                    <input pInputText type="password" name="contrasena" formControlName="contrasena"/> 
+                    <div *ngIf="formRegistroCuenta.controls.contrasena.errors && formRegistroCuenta.controls.contrasena.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.contrasena.errors.required" class="p-error">La contraseña es requerida.</small>
+                        <small *ngIf="formRegistroCuenta.controls.contrasena.errors.maxlength" class="alert alert-danger">La contraseña debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="apellidoMaterno">Confirmar Contraseña*:</label>
+                    <input pInputText type="password" name="contrasena" formControlName="contrasena"/> 
+                    <div *ngIf="formRegistroCuenta.controls.contrasena.errors && formRegistroCuenta.controls.contrasena.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.contrasena.errors.required" class="p-error">La contraseña es requerida.</small>
+                        <small *ngIf="formRegistroCuenta.controls.contrasena.errors.maxlength" class="alert alert-danger">La contraseña debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="p-grid p-nogutter ">
+                <p-button label="Atrás" (onClick)="prevPageDni()" icon="pi pi-angle-left"></p-button>
+                <p-button label="Next" (onClick)="nextPageUbigeo()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
+<div class="stepsdemo-content" *ngIf="isUbigeoCard">
+    <p-card>
+        <ng-template pTemplate="content">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field">
+                    <label for="nombre">Dirección*:</label>
+                    <input pInputText type="text" name="direccion" formControlName="direccion"/> 
+                    <div *ngIf="formRegistroCuenta.controls.direccion.errors && formRegistroCuenta.controls.direccion.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.direccion.errors.required" class="p-error">La dirección es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.direccion.errors.maxlength" class="alert alert-danger">La dirección debe tener máximo 200 caracteres.</small>
+                    </div>
+                </div>
+                <!-- <div class="p-field p-field p-col-12 p-md-6">
+                    <label for="departamento">Departamento*:</label>
+                    <select class="form-control" id="dddepartamento" formControlName="departamentoId"
+                        (change)="onChangeDepartamento($event)">
+                        <option value="" disabled selected hidden>Seleccionar un elemento</option>
+                        <option *ngFor="let item of listDepartamento" [value]="item.value"> {{item.label}} </option>
+                    </select>
+                </div>
+                <div class="p-field p-field p-col-12 p-md-6">
+                    <label for="provincia">Provincia*:</label>
+                    <select class="form-control" id="ddprovincia" formControlName="provinciaId"
+                    (change)="onChangeProvincia($event)">
+                        <option value="" disabled selected hidden>Seleecionar un elemento</option>
+                        <option *ngFor="let item of listProvincia" [value]="item.value"> {{item.label}} </option>
+                    </select>
+                </div>
+                <div class="p-field p-field p-col-12 p-md-6">
+                    <label for="provincia">Distrito*:</label>
+                    <select class="form-control" id="dddistrito" formControlName="distritoId">
+                        <option value="" disabled selected hidden>Seleccionar un elemento</option>
+                        <option *ngFor="let item of listDistrito" [value]="item.value"> {{item.label}} </option>
+                    </select>
+                </div> -->
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="p-grid p-nogutter ">
+                <p-button label="Atrás" (onClick)="prevPageCorreo()" icon="pi pi-angle-left"></p-button>
+                <p-button label="Next" (onClick)="nextPagePpe()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
+<div class="stepsdemo-content" *ngIf="isPpeCard">
+    <p-card>
+        <ng-template pTemplate="content">
+            <div class="p-fluid">
+                <div class="p-field">
+                    <label for="nombre">Correo Electrónico*:</label>
+                    <input pInputText type="text" name="nombre" formControlName="nombre"/> 
+                    <div *ngIf="formRegistroCuenta.controls.nombre.errors && formRegistroCuenta.controls.nombre.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.nombre.errors.required" class="p-error">El nombre es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.nombre.errors.maxlength" class="alert alert-danger">El nombre es debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="apellidoPaterno">Contraseña*:</label>
+                    <input pInputText type="text" name="apellidoPaterno" formControlName="apellidoPaterno"/> 
+                    <div *ngIf="formRegistroCuenta.controls.apellidoPaterno.errors && formRegistroCuenta.controls.apellidoPaterno.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.apellidoPaterno.errors.required" class="p-error">El apellido paterno es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.apellidoPaterno.errors.maxlength" class="alert alert-danger">El apellido paterno debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="apellidoMaterno">Confirmar Contraseña*:</label>
+                    <input pInputText type="text" name="apellidoMaterno" formControlName="apellidoMaterno"/> 
+                    <div *ngIf="formRegistroCuenta.controls.apellidoMaterno.errors && formRegistroCuenta.controls.apellidoMaterno.dirty">
+                        <small *ngIf="formRegistroCuenta.controls.apellidoMaterno.errors.required" class="p-error">El apellido materno es requerido.</small>
+                        <small *ngIf="formRegistroCuenta.controls.apellidoMaterno.errors.maxlength" class="alert alert-danger">El apellido materno debe tener máximo 50 caracteres.</small>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="p-grid p-nogutter ">
+                <p-button label="Atrás" (onClick)="prevPageUbigeo()" icon="pi pi-angle-left"></p-button>
+                <p-button label="Next" (onClick)="nextPageEsperaValidacion()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
+</div>
